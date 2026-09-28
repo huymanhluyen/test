@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $data = $request->validate([
             'search' => 'nullable|string|max:100',
@@ -23,8 +23,9 @@ class AdminController extends Controller
                     ->orWhere('phone', 'like', "%{$search}%")
                     ->orWhere('age', 'like', "%{$search}%");
             })
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->orderBy('ID', 'asc')
+            ->get();
+        return view('admin.dashboard', compact('users', 'search'));
     }
     public function create()
     {
