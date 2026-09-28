@@ -12,4 +12,4 @@ Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.stor
 Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
 Route::put('/admin/update/{id}', [AdminController::class, 'update'])->name('admin.update');
 Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
-Route::get('/admin/search', [AdminController::class, 'index'])->name('admin.search');
+Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');

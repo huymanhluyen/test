@@ -37,6 +37,13 @@
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->age }}</td>
                         <td>
+                            <a href="{{ route('admin.edit', $user->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('admin.delete', $user->id) }}" method="POST" style="display:inline-block;">
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                            </form>
+                        </td>
+                        <td>
                                 @csrf
                             </form>
                         </td>
